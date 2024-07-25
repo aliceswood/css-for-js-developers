@@ -56,19 +56,16 @@ const Link = styled.a`
 `;
 
 const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  padding: 16px
   
 `;
 
 const ImageWrapper = styled.div`
-  position: relative;
+
 `;
 
 const Image = styled.img`
-  max-width: 340px;
-  border-radius: 10px
+  width: 100%;
+  border-radius: 10px;
 `;
 
 const Row = styled.div`
