@@ -35,23 +35,10 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <Flag
-            style={{
-              '--background':
-                variant === 'on-sale'
-                  ? COLORS.primary
-                  : variant === 'new-release'
-                  ? COLORS.secondary
-                  : undefined
-            }}
-          >
-            {variant === 'on-sale'
-              ? 'Sale'
-              : variant === 'new-release'
-              ? 'Just Released!'
-              : undefined}
-          </Flag>
+
           <Image alt="" src={imageSrc} />
+          {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
+					{variant === 'new-release' && <JustReleasedFlag>Just Released!</JustReleasedFlag>}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -121,11 +108,21 @@ const Flag = styled.div`
   position: absolute;
   top: 12px;
   right: -4px;
-  background: var(--background);
-  border-radius: 4px;
-	color: white;
-	padding: 7px 9px 9px 11px;
-	font-weight: 700;
+  border-radius: 2px;
+	color: ${COLORS.white};
+	height: 32px;
+	line-height: 32px;
+	padding: 0 10px;
+	font-weight: ${WEIGHTS.bold};
 	font-size: ${14/16}rem;
 `
+
+const SaleFlag = styled(Flag)`
+	background-color: ${COLORS.primary};
+`;
+
+const JustReleasedFlag = styled(Flag)`
+	background-color: ${COLORS.secondary};
+`;
+
 export default ShoeCard
