@@ -35,6 +35,22 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
+          <Flag
+            style={{
+              '--background':
+                variant === 'on-sale'
+                  ? COLORS.primary
+                  : variant === 'new-release'
+                  ? COLORS.secondary
+                  : undefined
+            }}
+          >
+            {variant === 'on-sale'
+              ? 'Sale'
+              : variant === 'new-release'
+              ? 'Just Released!'
+              : undefined}
+          </Flag>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
@@ -44,9 +60,7 @@ const ShoeCard = ({
             style={{
               '--color': variant === 'on-sale' ? COLORS.gray[700] : undefined,
               '--text-decoration':
-                variant === 'on-sale'
-                  ? 'line-through'
-                  : undefined
+                variant === 'on-sale' ? 'line-through' : undefined
             }}
           >
             {formatPrice(price)}
@@ -70,7 +84,9 @@ const Link = styled.a`
 
 const Wrapper = styled.article``
 
-const ImageWrapper = styled.div``
+const ImageWrapper = styled.div`
+  position: relative;
+`
 
 const Image = styled.img`
   width: 100%;
@@ -101,5 +117,15 @@ const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
 `
-
+const Flag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  background: var(--background);
+  border-radius: 4px;
+	color: white;
+	padding: 7px 9px 9px 11px;
+	font-weight: 700;
+	font-size: ${14/16}rem;
+`
 export default ShoeCard
