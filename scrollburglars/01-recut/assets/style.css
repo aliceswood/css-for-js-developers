@@ -1896,6 +1896,14 @@ video {
   display: none;
 }
 
+.imageParentContainer {
+	width: 100vw
+}
+
+img {
+	width: 100%;
+}
+
 @media (pointer: none), (pointer: coarse) {
   .mobile-only {
     display: block;
