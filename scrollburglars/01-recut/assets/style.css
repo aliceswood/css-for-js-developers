@@ -1364,6 +1364,7 @@ video {
 
 .max-w-md {
 	max-width: 28rem !important;
+	width: 100%
 }
 
 .max-w-80 {
@@ -1894,14 +1895,6 @@ video {
 
 .mobile-only {
   display: none;
-}
-
-.imageParentContainer {
-	width: 100vw
-}
-
-img {
-	width: 100%;
 }
 
 @media (pointer: none), (pointer: coarse) {
